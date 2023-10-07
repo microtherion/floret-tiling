@@ -9,8 +9,6 @@ module floret_rod(a, b, thickness) {
     diff = b-a; beta = atan2(diff.x, diff.y); v = [-cos(beta)*0.5*thickness, sin(beta)*0.5*thickness];
     linear_extrude(thickness) {
         polygon([a-v, a+v, b+v, b-v]);
-        translate(a) circle(d=thickness);
-        translate(b) circle(d=thickness);
     }
 }
 
