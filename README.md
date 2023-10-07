@@ -2,6 +2,8 @@
 
 Implement floret pentagonal (6-fold pentille) tiling, either as a pure frame pattern, or as a partially filled pattern.
 
+![Demo](./demo.jpeg)
+
 ## API
 
 * `floret_tile_frame(side=10, thickness=thickness, angle_off=0, width=200, height=200)`  
