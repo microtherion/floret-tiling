@@ -86,7 +86,7 @@ module floret_tile_frame_recursive(side, thickness, width, height, todo, done, c
     }
 }
 
-module floret_tile_frame(side, thickness, angle_off, width, height) {
+module floret_tile_frame(side, thickness, angle_off=0, width, height) {
     intersection() {
         floret_tile_frame_recursive(side, thickness, width, height, [[0.5*width, 0.5*height, angle_off]], [], 0);
         cube([width, height, thickness]);
@@ -119,7 +119,7 @@ module floret_tile_solid_recursive(side, thickness, width, height, todo, done, c
     }
 }
 
-module floret_tile_solid(side, thickness, angle_off, width, height) {
+module floret_tile_solid(side, thickness, angle_off=0, width, height) {
     intersection() {
         floret_tile_solid_recursive(side, thickness, width, height, [[0.5*width, 0.5*height, angle_off, true]], [], 0);
         cube([width, height, thickness]);
@@ -130,7 +130,7 @@ font="Liberation Sans:style=Bold";
 thickness = 3.0;
 engrave   = 1.5;
 
-translate([0, 30]) floret_tile_solid(side=10, thickness=thickness, angle_off=0, width=200, height=200);
+translate([0, 30]) floret_tile_solid(side=10, thickness=thickness, width=200, height=200);
 difference() {
     translate([-25, -10]) cube([250, 250, thickness]);
     translate([0, 30]) cube([200, 200, thickness]);
@@ -144,7 +144,7 @@ difference() {
     translate([350, 0, thickness-engrave]) linear_extrude(engrave) text("Solid, 30 deg", font=font, size=20, halign="center");
 }
 
-translate([0, 280]) floret_tile_frame(side=10, thickness=thickness, angle_off=0, width=200, height=200);
+translate([0, 280]) floret_tile_frame(side=10, thickness=thickness, width=200, height=200);
 difference() {
     translate([-25, 240]) cube([250, 250, thickness]);
     translate([0, 280]) cube([200, 200, thickness]);
